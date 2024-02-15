@@ -1,0 +1,59 @@
+@import "reset";
+
+.home-container {
+    height: 100vh;
+    background: linear-gradient(#040306, #131624);
+
+    .home-content {
+        color: white;
+        font-size: 24px;
+
+        p {
+            margin: 0;
+        }
+
+        .category-scrolling {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            scrollbar-width: none;
+
+            div {
+                margin: 10px;
+
+                img {
+                    width: 130px;
+                    height: 130px;
+                    border-radius: 5px;
+                }
+
+                span {
+                    color: white;
+                }
+            }
+        }
+
+        .popular-scrolling {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            scrollbar-width: none;
+
+            a {
+                text-decoration: none;
+                margin: 10px;
+
+                img {
+                    width: 130px;
+                    height: 130px;
+                    border-radius: 5px;
+                }
+
+                span {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+

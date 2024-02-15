@@ -1,8 +1,14 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss';
+import Home from './components/Home';
 
 function App() {
   return (
-    <p className='fun'>LOL</p>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
 
