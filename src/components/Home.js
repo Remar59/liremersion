@@ -1,3 +1,10 @@
-import './App.scss';
+import React from 'react';
+import '../styles/home.scss';
 
-<p>Bonjour !</p>
+function Home() {
+    return (
+        <p>Bonjour !</p>
+    );
+}
+
+export default Home;
