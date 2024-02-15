@@ -20,7 +20,7 @@ function Home() {
                 <h2>Populaires</h2>
                 <div className='popular-scrolling'>
                     {sounds.map(item => (
-                        <a href="">
+                        <a href="/cat">
                             <img src={item.image} alt={item.name} />
                             <span>{item.name}</span>
                         </a>
