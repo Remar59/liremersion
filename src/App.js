@@ -2,7 +2,7 @@ import './App.scss';
 
 function App() {
   return (
-    <p>LOL</p>
+    <p className='fun'>LOL</p>
   );
 }
 
