@@ -1,5 +1,9 @@
 @import "reset";
 
+p {
+    margin: 0;
+}
+
 .home-container {
     height: 100vh;
     background: linear-gradient(#040306, #131624);
@@ -7,9 +11,22 @@
     .home-content {
         color: white;
         font-size: 24px;
+        width: 97%;
+        margin: auto;
 
-        p {
-            margin: 0;
+        .header {
+            display: flex;
+            justify-content: space-between;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                
+                a {
+                    color: white;
+                }
+            }
         }
 
         .category-scrolling {
@@ -20,6 +37,8 @@
 
             div {
                 margin: 10px;
+                display: flex;
+                flex-direction: column;
 
                 img {
                     width: 130px;
@@ -27,7 +46,7 @@
                     border-radius: 5px;
                 }
 
-                span {
+                label {
                     color: white;
                 }
             }
@@ -42,6 +61,8 @@
             a {
                 text-decoration: none;
                 margin: 10px;
+                display: flex;
+                flex-direction: column;
 
                 img {
                     width: 130px;
@@ -49,7 +70,7 @@
                     border-radius: 5px;
                 }
 
-                span {
+                label {
                     color: white;
                 }
             }

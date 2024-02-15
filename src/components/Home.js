@@ -7,13 +7,19 @@ function Home() {
     return (
         <div className='home-container'>
             <div className='home-content'>
-                <p>Bonjour !</p>
+                <div className='header'>
+                    <p>Bonjour !</p>
+                    <div>
+                        <a href="">Se connecter</a>
+                        <a href="">Créer un compte</a>
+                    </div>
+                </div>
                 <h2>Nos catégories</h2>
                 <div className='category-scrolling'>
                     {categories.map(item => (
                         <div>
                             <img src={item.image} alt={item.name} />
-                            <span>{item.name}</span>
+                            <label htmlFor="img">{item.name}</label>
                         </div>
                     ))}
                 </div>
@@ -22,9 +28,9 @@ function Home() {
                     {sounds.map(item => (
                         <a href="">
                             <img src={item.image} alt={item.name} />
-                            <span>{item.name}</span>
+                            <label htmlFor="img">{item.name}</label>
                         </a>
-                    ))}    
+                    ))}
                 </div>
             </div>
         </div>
