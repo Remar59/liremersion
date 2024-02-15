@@ -1,9 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (
-    <p>LOL</p>
+    <p className='fun'>LOL</p>
   );
 }
 
