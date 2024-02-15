@@ -1,4 +1,8 @@
-const DisplayTrack = () => {
-    return <div>DisplayTrack content here</div>;
+const DisplayTrack = ({ currentTrack }) => {
+    return (
+      <div>
+        <audio src={currentTrack.src} />
+      </div>
+    );
   };
   export default DisplayTrack;

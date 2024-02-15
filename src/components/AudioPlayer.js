@@ -1,12 +1,17 @@
+import { useState } from 'react';
+import { tracks } from '../data/tracks';
+
+// import components
 import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
 
 const AudioPlayer = () => {
+  const [currentTrack, setCurrentTrack] = useState(tracks[0]);
   return (
     <div className="audio-player">
       <div className="inner">
-        <DisplayTrack />
+        <DisplayTrack currentTrack={currentTrack} />
         <Controls />
         <ProgressBar />
       </div>
