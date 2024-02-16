@@ -10,7 +10,7 @@ function Home() {
                 <div className='header'>
                     <p>Bonjour !</p>
                     <div>
-                        <a href="">Se connecter</a>
+                        <a href="/login">Se connecter</a>
                         <a href="/signup">Créer un compte</a>
                     </div>
                 </div>

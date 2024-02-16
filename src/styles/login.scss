@@ -1,0 +1,57 @@
+@import "reset";
+
+.login-container {
+    height: 100vh;
+    background: linear-gradient(#040306, #131624);
+
+    .login-content {
+        color: white;
+        font-size: 24px;
+        width: 50%;
+        margin: auto;
+
+        @media screen and (max-width: 600px) {
+            width: 90%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            .form-group {
+                margin-bottom: 20px;
+
+                label {
+                    margin-bottom: 5px;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: none;
+                }
+            }
+
+            button {
+                width: 50%;
+                margin: auto;
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                background-color: #1E90FF;
+                color: white;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #4169E1;
+                }
+            }
+        }
+    }
+}

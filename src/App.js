@@ -3,6 +3,7 @@ import './App.scss';
 import Home from './components/Home';
 import AudioPlayer from './components/AudioPlayer';
 import Signup from './components/Singup';
+import Login from './components/login';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/cat" element={<AudioPlayer />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
