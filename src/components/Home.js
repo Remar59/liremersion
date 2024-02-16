@@ -11,7 +11,7 @@ function Home() {
                     <p>Bonjour !</p>
                     <div>
                         <a href="">Se connecter</a>
-                        <a href="">Créer un compte</a>
+                        <a href="/signup">Créer un compte</a>
                     </div>
                 </div>
                 <h2>Nos catégories</h2>
