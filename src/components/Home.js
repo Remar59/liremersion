@@ -2,8 +2,9 @@ import React from 'react';
 import '../styles/home.scss';
 import categories from '../categories';
 import sounds from '../sounds';
+import AudioPlayer from './AudioPlayer'; 
 
-function Home() {
+function Home(props) {
     return (
         <div className='home-container'>
             <div className='home-content'>
@@ -17,7 +18,7 @@ function Home() {
                 <h2>Nos catégories</h2>
                 <div className='category-scrolling'>
                     {categories.map(item => (
-                        <div>
+                        <div key={item.id}> 
                             <img src={item.image} alt={item.name} />
                             <label htmlFor="img">{item.name}</label>
                         </div>
@@ -26,13 +27,14 @@ function Home() {
                 <h2>Populaires</h2>
                 <div className='popular-scrolling'>
                     {sounds.map(item => (
-                        <a href="/cat">
+                        <a key={item.id} href={`/tracks/${item.id}`}>
                             <img src={item.image} alt={item.name} />
-                            <label htmlFor="img">{item.name}</label>
+                            <label key={item.id + "_label"} htmlFor="img">{item.name}</label>
                         </a>
                     ))}
                 </div>
             </div>
+            <AudioPlayer tracks={sounds} />
         </div>
     );
 }

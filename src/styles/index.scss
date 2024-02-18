@@ -9,7 +9,7 @@ body {
 }
 
 .audio-player {
-  background: #c1b6bc;
+  background: rgba(0,0,0,.8);
 }
 
 .inner {
@@ -47,8 +47,8 @@ body {
 }
 
 .audio-image {
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   background: #1e1e1e; 
 }
 
@@ -83,6 +83,7 @@ body {
   background-color: transparent;
   margin-right: 8px;
   cursor: pointer;
+  color: #f0f0f2;
 }
 
 button svg {
@@ -107,7 +108,7 @@ button svg {
 
 /* time */
 .time {
-  color: #333;
+  color: #fff;
   font-size: 13px;
   line-height: 46px;
 }

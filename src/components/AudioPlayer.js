@@ -1,66 +1,72 @@
-import { useRef, useState } from 'react';
-import { tracks } from '../data/tracks';
-
-
+import { useRef, useState, useEffect } from 'react';
 import DisplayTrack from './DisplayTrack';
 import Controls from './Controls';
 import ProgressBar from './ProgressBar';
+import { useParams } from 'react-router-dom';
 
-const AudioPlayer = () => {
+const AudioPlayer = ({ tracks }) => {
+
+  const { id } = useParams();
+
   // states
   const [trackIndex, setTrackIndex] = useState(0);
-  const [currentTrack, setCurrentTrack] = useState(
-    tracks[trackIndex]
+  const [currentTrack, setCurrentTrack] = useState(null
   );
   const [timeProgress, setTimeProgress] = useState(0);
   const [duration, setDuration] = useState(0);
 
-  // reference
+  // references
   const audioRef = useRef();
   const progressBarRef = useRef();
 
-  const handleNext = () => {
-    if (trackIndex >= tracks.length - 1) {
-      setTrackIndex(0);
-      setCurrentTrack(tracks[0]);
-    } else {
-      setTrackIndex((prev) => prev + 1);
-      setCurrentTrack(tracks[trackIndex + 1]);
+  useEffect(() => {
+    const selectedTrack = tracks.find(track => track.id === id);
+    if (selectedTrack) {
+      setCurrentTrack(selectedTrack);
+      
     }
+  }, [id, tracks]);
+
+  const handleNext = () => {
+    const newIndex = trackIndex === tracks.length - 1 ? 0 : trackIndex + 1;
+    setTrackIndex(newIndex);
+    setCurrentTrack(tracks[newIndex]);
   };
 
   return (
-    <>
-      <div className="audio-player">
-        <div className="inner">
-          <DisplayTrack
-            {...{
-              currentTrack,
-              audioRef,
-              setDuration,
-              progressBarRef,
-              handleNext,
-            }}
-          />
-          <Controls
-            {...{
-              audioRef,
-              progressBarRef,
-              duration,
-              setTimeProgress,
-              tracks,
-              trackIndex,
-              setTrackIndex,
-              setCurrentTrack,
-              handleNext,
-            }}
-          />
-          <ProgressBar
-            {...{ progressBarRef, audioRef, timeProgress, duration }}
-          />
-        </div>
+    <div className="audio-player">
+      <div className="inner">
+        {currentTrack && (
+          <>
+            <DisplayTrack
+              currentTrack={currentTrack}
+              audioRef={audioRef}
+              setDuration={setDuration}
+              progressBarRef={progressBarRef}
+              handleNext={handleNext}
+            />
+            <Controls
+              audioRef={audioRef}
+              progressBarRef={progressBarRef}
+              duration={duration}
+              setTimeProgress={setTimeProgress}
+              tracks={tracks}
+              trackIndex={trackIndex}
+              setTrackIndex={setTrackIndex}
+              setCurrentTrack={setCurrentTrack}
+              handleNext={handleNext}
+            />
+            <ProgressBar
+              progressBarRef={progressBarRef}
+              audioRef={audioRef}
+              timeProgress={timeProgress}
+              duration={duration}
+            />
+          </>
+        )}
       </div>
-    </>
+    </div>
   );
 };
+
 export default AudioPlayer;

@@ -3,13 +3,13 @@ const sounds = [
         id: "PREOC",
         name: "Préocupation",
         duration: 96,
-        image: "https://www.stress.org/wp-content/uploads/2019/01/stressed-worker.jpg"
+        image: "https://www.stress.org/wp-content/uploads/2019/01/stressed-worker.jpg",
     },
     {
         id: "EXPLO",
         name: "Exploration",
         duration: 96,
-        image: "https://warnercnr.colostate.edu/wp-content/uploads/sites/2/2017/04/shutterstock_428626417-1024x683.jpg"
+        image: "https://warnercnr.colostate.edu/wp-content/uploads/sites/2/2017/04/shutterstock_428626417-1024x683.jpg",
     },
     {
         id: "FIGHT",
