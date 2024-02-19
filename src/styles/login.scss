@@ -2,7 +2,7 @@
 
 .login-container {
     height: 100vh;
-    background: linear-gradient(#040306, #131624);
+    background: linear-gradient(#040306, #22273f);
 
     .login-content {
         color: white;
@@ -17,6 +17,7 @@
         h2 {
             margin-bottom: 20px;
             text-align: center;
+            padding-top: 20px;
         }
 
         form {

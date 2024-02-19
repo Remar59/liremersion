@@ -20,7 +20,7 @@ function Home() {
             <a href="/signup">Créer un compte</a>
           </div>
         </div>
-        <h2>Nos catégories</h2>
+        <h2>Catégories</h2>
         <div className="category-scrolling">
           {categories.map((item) => (
             <div key={item.id}>

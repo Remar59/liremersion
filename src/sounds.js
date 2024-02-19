@@ -1,7 +1,7 @@
 const sounds = [
     {
         id: "PREOC",
-        name: "Préocupation",
+        name: "Tourment",
         duration: 96,
         image: "https://www.stress.org/wp-content/uploads/2019/01/stressed-worker.jpg",
     },

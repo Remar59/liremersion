@@ -20,7 +20,7 @@ export const tracks = [
   },
   {
     id: "EXPLO",
-    title: 'Concern',
+    title: 'Concern Main Theme',
     src: Concerntheme,
     author: 'Glandalf',
     thumbnail: Concernthumb,

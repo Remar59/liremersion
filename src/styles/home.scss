@@ -18,15 +18,20 @@ p {
         .header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
+            padding-top: 20px;
 
             div {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-end;
+      
                 
                 a {
                     color: white;
+                    padding: 10px;
+                    background-color: #22273f;
+                    border-radius: 10px;
+                    margin-bottom: 10px;
                 }
             }
         }
