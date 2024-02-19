@@ -6,7 +6,8 @@ p {
 
 .home-container {
     height: 100vh;
-    background: linear-gradient(#040306, #131624);
+    background: linear-gradient(#040306, #22273f);
+    position: relative;
 
     .home-content {
         color: white;
@@ -17,6 +18,7 @@ p {
         .header {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 50px;
 
             div {
                 display: flex;
@@ -58,7 +60,7 @@ p {
             overflow-x: auto;
             scrollbar-width: none;
 
-            a {
+            .popular {
                 text-decoration: none;
                 margin: 10px;
                 display: flex;
