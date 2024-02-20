@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import "../styles/home.scss";
 import categories from "../categories";
 import sounds from "../sounds";
@@ -6,10 +6,14 @@ import AudioPlayer from "./AudioPlayer";
 import { tracks } from "../data/tracks";
 
 function Home() {
-  const changeSounds = (id) => {
-    
-  };
+  const [selectedTrack, setSelectedTrack] = useState(null);
 
+  const changeSounds = (id) => {
+ 
+    const selectedSound = sounds.find((sound) => sound.id === id);
+    const selectedTrackInfo = tracks.find((track) => track.id === selectedSound.id);
+    setSelectedTrack(selectedTrackInfo);
+  };
   return (
     <div className="home-container">
       <div className="home-content">
@@ -47,7 +51,7 @@ function Home() {
           ))}
         </div>
       </div>
-      <AudioPlayer tracks={tracks} />
+      <AudioPlayer selectedTrack={selectedTrack} />
     </div>
   );
 }
