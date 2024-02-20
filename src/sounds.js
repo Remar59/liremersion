@@ -49,9 +49,9 @@ const sounds = [
     },
     {
         id: "TRAV",
-        name: "Emerveillement",
+        name: "Voyage",
         duration: 93,
-        image: "https://www.radiofrance.fr/s3/cruiser-production/2019/03/cb1d032e-1a75-450a-947a-cf697a9c4dcb/870x489_gettyimages-143512327.webp"
+        image: "https://thumbs.dreamstime.com/b/travel-world-landmarks-background-blue-sky-46083021.jpg"
     },
     {
         id: "WORK",

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate} from 'react-router-dom';
+import { Button, message, Space } from 'antd';
 
 import "../styles/login.scss";
 
@@ -6,7 +8,7 @@ function App() {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
+  
   // User Login info
   const database = [
     {
@@ -23,12 +25,14 @@ function App() {
     uname: "Utilisateur introuvable",
     pass: "Mot de passe invalide"
   };
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
 
     const { uname, pass } = document.forms[0];
+    
 
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
@@ -40,6 +44,7 @@ function App() {
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
         setIsSubmitted(true);
+        navigate('/');
       }
     } else {
       // Username not found
@@ -68,7 +73,7 @@ function App() {
           {renderErrorMessage("pass")}
         </div>
         <div className="button-container">
-          <input type="submit" value="Se connecter"/>
+          <button type="submit">Se connecter</button>
         </div>
       </form>
     </div>

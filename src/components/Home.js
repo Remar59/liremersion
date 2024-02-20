@@ -10,10 +10,26 @@ function Home() {
 
   const changeSounds = (id) => {
  
-    const selectedSound = sounds.find((sound) => sound.id === id);
-    const selectedTrackInfo = tracks.find((track) => track.id === selectedSound.id);
+    const selectedSound = sounds.find((sound) => sound.id == id);
+    const selectedTrackInfo = tracks.find((track) => track.id == selectedSound.id);
     setSelectedTrack(selectedTrackInfo);
   };
+
+const links = [
+  { name: 'Fantasy',
+    to: '/subcategories/Fantasy'},
+  { name: 'History',
+    to: '/subcategories/History'},
+  { name: 'Knowledge',
+    to: '/subcategories/Knowledge'},
+  { name: 'Scifi',
+    to: '/subcategories/Scifi'},
+  { name: 'Thriller',
+    to: '/subcategories/Thriller'},
+  { name: 'Youth',
+    to: '/subcategories/Youth'},
+]
+
   return (
     <div className="home-container">
       <div className="home-content">
@@ -27,10 +43,12 @@ function Home() {
         <h2>Catégories</h2>
         <div className="category-scrolling">
           {categories.map((item) => (
-            <div key={item.id}>
-              <img src={item.image} alt={item.name} />
+            <Fragment >
+            <div key={item.id} href="/subcategories/Youth">
+              <img src={item.image} alt={item.name}/>
               <label htmlFor="img">{item.name}</label>
             </div>
+            </Fragment>
           ))}
         </div>
         <h2>Populaires</h2>
