@@ -12,16 +12,16 @@ body {
 .audio-player {
   position: fixed;
   bottom: 0;
-  left: 50%;
+  left: 50%; 
   transform: translateX(-50%);
-  width: 50%; /* Optionally set the width to span the entire page */
+  width: 85%; /* Optionally set the width to span the entire page */
   background: rgba(0,0,0,.8);
   border-radius: 10px;
 }
 
 .inner {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
   padding: 20px;
 }
 

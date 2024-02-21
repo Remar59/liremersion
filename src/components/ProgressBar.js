@@ -1,4 +1,4 @@
-import '../styles/index.scss';
+import '../styles/player.scss';
 import '../styles/customize-progress-bar.scss';
 
 const ProgressBar = ({ progressBarRef, audioRef, timeProgress, duration }) => {
