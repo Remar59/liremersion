@@ -1,58 +1,106 @@
 @import "reset";
 
-.signup-container {
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
     background: linear-gradient(#040306, #22273f);
+}
 
-    .signup-content {
-        color: white;
-        font-size: 24px;
-        width: 60%;
-        margin: auto;
+#root {
+    display: flex;
+    justify-content: center;
+}
 
-        @media screen and (max-width: 600px) {
-            width: 90%;
-        }
+section {
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+    background: linear-gradient(#040306, #22273f);
+}
 
-        h2 {
-            margin-bottom: 20px;
-            text-align: center;
-            padding-top: 20px;
-        }
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding-bottom: 1rem;
+}
 
-        form {
-            display: flex;
-            flex-direction: column;
+a, a:visited {
+    color: #fff;
+}
 
-            .form-group {
-                margin-bottom: 20px;
+input[type="text"],
+input[type="password"],
+button,
+textarea {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+}
 
-                label {
-                    margin-bottom: 5px;
-                }
+label,
+button {
+  margin-top: 1rem;
+}
 
-                input {
-                    width: 100%;
-                    padding: 10px;
-                    border-radius: 5px;
-                    border: none;
-                }
-            }
+button {
+  padding: 0.5rem;
+}
 
-            button {
-                width: 50%;
-                margin: auto;
-                padding: 10px;
-                border-radius: 5px;
-                border: none;
-                background-color: #1E90FF;
-                color: white;
-                cursor: pointer;
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    background: #000;
+    color: #fff;
+    padding: 0.25rem;
+    position: relative;
+    bottom: -10px;
+}
 
-                &:hover {
-                    background-color: #4169E1;
-                }
-            }
-        }
-    }
+.instructions > svg {
+    margin-right: 0.25rem;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+.valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: red;
+    margin-left: 0.25rem;
+}
+
+.errmsg {
+    background-color: lightpink;
+    color: firebrick;
+    font-weight: bold;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.line {
+    display: inline-block;
 }

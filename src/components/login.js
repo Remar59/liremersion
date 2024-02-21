@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate} from 'react-router-dom';
-import { Button, message, Space } from 'antd';
 
 import "../styles/login.scss";
 
@@ -10,7 +9,7 @@ function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   
   // User Login info
-  const database = [
+  const dbuser = [
     {
       username: "Flo",
       password: "Flo123"
@@ -28,31 +27,26 @@ function App() {
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
-    //Prevent page reload
     event.preventDefault();
 
     const { uname, pass } = document.forms[0];
     
+    const userData = dbuser.find((user) => user.username === uname.value);
 
-    // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
-
-    // Compare user info
+ 
     if (userData) {
       if (userData.password !== pass.value) {
-        // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
         setIsSubmitted(true);
         navigate('/');
       }
     } else {
-      // Username not found
       setErrorMessages({ name: "uname", message: errors.uname });
     }
   };
 
-  // Generate JSX code for error message
+
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
