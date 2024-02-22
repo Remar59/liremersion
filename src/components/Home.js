@@ -52,7 +52,7 @@ function Home() {
                 </Fragment>
             ))}
         </div>
-                <h2>Populaires</h2>
+                <h2>Sons populaires</h2>
                 <div className="popular-scrolling">
                     {sounds.map((item) => (
                         <Fragment >
