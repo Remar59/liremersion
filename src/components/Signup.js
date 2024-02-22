@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/signup.scss";
 
@@ -14,14 +14,11 @@ const Register = () => {
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
 
-
     const [pwd, setPwd] = useState('');
     const [validPwd, setValidPwd] = useState(false);
 
-
     const [matchPwd, setMatchPwd] = useState('');
     const [validMatch, setValidMatch] = useState(false);
-    const [matchFocus, setMatchFocus] = useState(false);
 
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
@@ -91,7 +88,7 @@ const Register = () => {
                     <h1>Inscription réussi ! Redirection vers la page d'accueil...</h1>
                     {setTimeout(() => {
                         window.location.href = "/";
-                    }, 0)};
+                    }, 2000)};
                 </section>
             ) : (
                 <section>
@@ -143,13 +140,8 @@ const Register = () => {
                             required
                             aria-invalid={validMatch ? "false" : "true"}
                             aria-describedby="confirmnote"
-                            onFocus={() => setMatchFocus(true)}
-                            onBlur={() => setMatchFocus(false)}
                         />
-                        <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
-                            <FontAwesomeIcon icon={faInfoCircle} />
-                            Must match the first password input field.
-                        </p>
+
 
                         <button disabled={!validName || !validPwd || !validMatch ? true : false}>S'enregistrer</button>
                     </form>
@@ -161,6 +153,7 @@ const Register = () => {
                         </span>
                     </p>
                 </section>
+
             )}
         </>
     )
