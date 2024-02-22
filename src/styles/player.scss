@@ -18,6 +18,11 @@ body {
   /* Optionally set the width to span the entire page */
   background: rgba(0, 0, 0, .8); //Couleur à mettre en dynamique par rapport à la couleur de la miniature
   border-radius: 10px;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+
+  }
 }
 
 .inner {
@@ -29,6 +34,10 @@ body {
 .upperInner {
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 550px) {
+    justify-content: center;
+  }
 }
 
 /* info song player */
@@ -49,6 +58,11 @@ body {
   padding: 2px;
   line-height: 37px;
   background-color: rgba(0, 0, 0, .8);
+
+  @media screen and (max-width: 900px) {
+    font-size: 20px;
+    line-height: normal;
+  }
 }
 
 /* image songs */
@@ -63,6 +77,19 @@ body {
   width: 100px;
   height: 100px;
   background: #1e1e1e;
+
+  img {
+    min-width: 100px;
+
+    @media screen and (max-width: 900px) {
+      min-width: 60px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .audio-icon {
@@ -89,6 +116,10 @@ body {
   align-items: center;
   width: 60%;
   justify-content: space-between;
+
+  @media screen and (max-width: 550px) {
+    justify-content: center;
+  }
 }
 
 .controls {
@@ -130,6 +161,10 @@ button svg {
 .volume {
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
 }
 
 .volume button {
@@ -141,6 +176,10 @@ button svg {
   align-items: center;
   gap: 10px;
   width: 100%;
+
+  @media screen and (max-width: 550px) {
+    display: none;
+  }
 }
 
 /* Barre progression */

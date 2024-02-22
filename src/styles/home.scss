@@ -29,6 +29,11 @@ p {
             .userConnect {
                 display: block;
 
+                @media screen and (max-width: 900px) {
+                    display: flex;
+                    flex-direction: column;
+                  }
+
                 .connect {
                     color: black;
                     padding: 5px;
