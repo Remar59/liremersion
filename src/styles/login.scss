@@ -3,21 +3,36 @@
 .login-container {
     height: 100vh;
     background: linear-gradient(#040306, #22273f);
+    width: 75%;
+    padding-top: 10rem;
+
+    @media screen and (max-width: 650px) {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 900px) {
+        width: 90%;
+    }
 
     .login-content {
         color: white;
         font-size: 24px;
-        width: 50%;
+        width: 65%;
         margin: auto;
 
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 650px) {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 900px) {
             width: 90%;
         }
 
-        h2 {
+        .title {
             margin-bottom: 20px;
             text-align: center;
             padding-top: 20px;
+            font-size: 32px;
         }
 
         form {
@@ -39,6 +54,8 @@
                 }
             }
 
+
+
             button {
                 width: 50%;
                 margin: auto;
@@ -54,8 +71,11 @@
                     background-color: #4169E1;
                 }
 
+                @media screen and (max-width: 900px) {
+                    width: 100%;
                 }
+
             }
         }
     }
-
+}
