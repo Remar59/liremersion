@@ -1,4 +1,4 @@
-@import "reset";
+//@import "reset";
 
 p {
     margin: 0;
@@ -7,12 +7,12 @@ p {
 .home-container {
     height: 100vh;
     background: linear-gradient(#040306, #22273f);
-    position: relative;
+    
 
     .home-content {
         color: white;
         font-size: 24px;
-        width: 97%;
+        width: 95vw;
         margin: auto;
 
         h2{
@@ -23,6 +23,8 @@ p {
             display: flex;
             justify-content: space-between;
             padding-top: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
 
             .userConnect {
                 display: block;
@@ -65,6 +67,7 @@ p {
                 margin: 10px;
                 display: flex;
                 flex-direction: column;
+                max-width: 130px;
 
                 img {
                     width: 130px;
@@ -90,6 +93,7 @@ p {
                 display: flex;
                 flex-direction: column;
                 cursor: pointer;
+                max-width: 130px;
 
                 img {
                     width: 130px;

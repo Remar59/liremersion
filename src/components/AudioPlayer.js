@@ -15,11 +15,11 @@ const AudioPlayer = ({ selectedTrack }) => {
   const audioRef = useRef(null);
   const progressBarRef = useRef(null);
 
-useEffect(() => {
-  if (selectedTrack) {
-    setCurrentTrack(selectedTrack)
-  }
-}, [selectedTrack])
+  useEffect(() => {
+    if (selectedTrack) {
+      setCurrentTrack(selectedTrack)
+    }
+  }, [selectedTrack])
 
 
   const handleNext = () => {
@@ -36,28 +36,30 @@ useEffect(() => {
     <>
       <div className="audio-player">
         <div className="inner">
-          <DisplayTrack
-            {...{
-              currentTrack,
-              audioRef,
-              setDuration,
-              progressBarRef,
-              handleNext,
-            }}
-          />
-          <Controls
-            {...{
-              audioRef,
-              progressBarRef,
-              duration,
-              setTimeProgress,
-              tracks,
-              trackIndex,
-              setTrackIndex,
-              setCurrentTrack,
-              handleNext,
-            }}
-          />
+          <div className="upperInner">
+            <DisplayTrack
+              {...{
+                currentTrack,
+                audioRef,
+                setDuration,
+                progressBarRef,
+                handleNext,
+              }}
+            />
+            <Controls
+              {...{
+                audioRef,
+                progressBarRef,
+                duration,
+                setTimeProgress,
+                tracks,
+                trackIndex,
+                setTrackIndex,
+                setCurrentTrack,
+                handleNext,
+              }}
+            />
+          </div>
           <ProgressBar
             {...{ progressBarRef, audioRef, timeProgress, duration }}
           />

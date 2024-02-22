@@ -88,25 +88,25 @@ const Controls = ({
   return (
     <div className="controls-wrapper">
       <div className="controls">
-        <button onClick={handlePrevious}>
+        <button className='button' onClick={handlePrevious}>
           <IoPlaySkipBackSharp />
         </button>
-        <button onClick={skipBackward}>
+        <button className='button' onClick={skipBackward}>
           <IoPlayBackSharp />
         </button>
 
-        <button onClick={togglePlayPause}>
+        <button className='playButton' onClick={togglePlayPause}>
           {isPlaying ? <IoPauseSharp /> : <IoPlaySharp />}
         </button>
-        <button onClick={skipForward}>
+        <button className='button' onClick={skipForward}>
           <IoPlayForwardSharp />
         </button>
-        <button onClick={handleNext}>
+        <button className='button' onClick={handleNext}>
           <IoPlaySkipForwardSharp />
         </button>
       </div>
       <div className="volume">
-        <button onClick={() => setMuteVolume((prev) => !prev)}>
+        <button className='button' onClick={() => setMuteVolume((prev) => !prev)}>
           {muteVolume || volume < 5 ? (
             <IoMdVolumeOff />
           ) : volume < 40 ? (
