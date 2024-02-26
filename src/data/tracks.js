@@ -92,8 +92,6 @@ export const tracks = [
     src: Workingtheme,
     author: 'Rem',
     thumbnail: "https://img.freepik.com/free-photo/pensive-male-customer-looking-away_74855-3601.jpg?w=1380&t=st=1707908330~exp=1707908930~hmac=77f9f18abbaee8cbc18fd52c4a845d1b0b3639695c7a69d51463e7d66c238d15",
-    color: "#eceae9"
+    color: "#c2d3e3"
   },
-
-
 ];
