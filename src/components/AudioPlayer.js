@@ -4,16 +4,21 @@ import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
 import { tracks } from "../data/tracks";
 
-const AudioPlayer = ({ selectedTrack }) => {
+const AudioPlayer = ({ selectedTrack, backgroundColor }) => {
   // states
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(tracks[trackIndex]);
   const [timeProgress, setTimeProgress] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [background, setBackground] = useState('transparent');
 
   // reference
   const audioRef = useRef(null);
   const progressBarRef = useRef(null);
+
+  useEffect(() => {
+    setBackground(backgroundColor);
+  }, [backgroundColor]);
 
   useEffect(() => {
     if (selectedTrack) {
@@ -34,7 +39,7 @@ const AudioPlayer = ({ selectedTrack }) => {
 
   return (
     <>
-      <div className="audio-player">
+      <div className="audio-player" style={{ backgroundColor: currentTrack.color }}>
         <div className="inner">
           <div className="upperInner">
             <DisplayTrack

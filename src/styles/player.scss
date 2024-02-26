@@ -16,7 +16,7 @@ body {
   transform: translateX(-50%);
   width: 85%;
   /* Optionally set the width to span the entire page */
-  background: rgba(0, 0, 0, .8); //Couleur à mettre en dynamique par rapport à la couleur de la miniature
+  background: #000000cc; //Couleur à mettre en dynamique par rapport à la couleur de la miniature
   border-radius: 10px;
 
   @media screen and (max-width: 900px) {

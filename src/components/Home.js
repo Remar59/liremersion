@@ -2,16 +2,38 @@ import React, { Fragment, useState, useEffect } from "react";
 import "../styles/home.scss";
 import AudioPlayer from "./AudioPlayer";
 import { tracks } from "../data/tracks";
+// import { FastAverageColor } from "fast-average-color";
 
 function Home() {
     const [selectedTrack, setSelectedTrack] = useState(null);
     const [categories, setCategories] = useState([]);
     const [sounds, setSounds] = useState([]);
+    // const [backgroundColor, setBackgroundColor] = useState('transparent');
+
+    // const extractDominantColor = (imageUrl) => {
+    //     const image = new Image();
+    //     image.crossOrigin = 'Anonymous';
+    //     image.src = imageUrl;
+
+    //     const fac = new FastAverageColor();
+
+    //     image.onload = function () {
+    //         fac.getColorAsync(image)
+    //             .then(color => {
+    //                 setBackgroundColor(color.hex);
+    //             })
+    //             .catch(e => {
+    //                 console.error('Erreur lors de l\'extraction de la couleur dominante :', e);
+    //             });
+    //     };
+    // };
+
     const changeSounds = (id) => {
 
         const selectedSound = sounds.find((sound) => sound.id === id);
         const selectedTrackInfo = tracks.find((track) => track.id === selectedSound.id);
         setSelectedTrack(selectedTrackInfo);
+        // extractDominantColor(selectedSound.image);
     };
 
     //combine les appels API
@@ -30,6 +52,12 @@ function Home() {
         fetchData('http://localhost:5500/sounds', setSounds);
     }, []);
 
+    // useEffect(() => {
+    //     sounds.forEach((sound) => {
+    //         extractDominantColor(sound.image);
+    //     });
+    // }, [sounds]);
+
 
     return (
         <div className="home-container">
@@ -43,15 +71,15 @@ function Home() {
                 </div>
                 <h2>Catégories</h2>
                 <div className="category-scrolling">
-            {categories.map((item) => (
-                <Fragment >
-                <div key={item.id}>
-                    <img src={item.image} alt={item.name} />
-                    <label htmlFor="img">{item.name}</label>
+                    {categories.map((item) => (
+                        <Fragment >
+                            <div key={item.id}>
+                                <img src={item.image} alt={item.name} />
+                                <label htmlFor="img">{item.name}</label>
+                            </div>
+                        </Fragment>
+                    ))}
                 </div>
-                </Fragment>
-            ))}
-        </div>
                 <h2>Sons populaires</h2>
                 <div className="popular-scrolling">
                     {sounds.map((item) => (
@@ -70,7 +98,7 @@ function Home() {
                     ))}
                 </div>
             </div>
-            <AudioPlayer selectedTrack={selectedTrack} />
+            { <AudioPlayer selectedTrack={selectedTrack} /*backgroundColor={backgroundColor}*/ /> }
         </div>
     );
 }
