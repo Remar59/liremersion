@@ -9,6 +9,7 @@ import Sadnesstheme from './songs/Sadness.mp3';
 import Wondertheme from './songs/Wonder.mp3';
 import Traveltheme from './songs/Travel.mp3';
 import Workingtheme from './songs/Working.mp3';
+import ActionSuspenstheme from './songs/ActionSuspens.mp3';
 
 
 
@@ -94,4 +95,12 @@ export const tracks = [
     thumbnail: "https://img.freepik.com/free-photo/pensive-male-customer-looking-away_74855-3601.jpg?w=1380&t=st=1707908330~exp=1707908930~hmac=77f9f18abbaee8cbc18fd52c4a845d1b0b3639695c7a69d51463e7d66c238d15",
     color: "#c2d3e3"
   },
+  {
+    id: "ACTSUS",
+    title: "Action/Suspens Main Theme",
+    src: ActionSuspenstheme,
+    author: "Flo",
+    thumbnail: "https://img.freepik.com/photos-gratuite/personnage-effrayant-plein-coup-posant_23-2150701224.jpg",
+    color: "#5a6254"
+  }
 ];
