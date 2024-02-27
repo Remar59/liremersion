@@ -27,6 +27,15 @@ p {
             padding-top: 20px;
             margin-left: 10px;
             margin-right: 10px;
+
+            .logoHello{
+                display: flex;
+            }
+
+            .logoimg{
+                width: 3rem;
+                height: 3rem;
+            }
  
             .userConnect {
                 display: block;

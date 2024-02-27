@@ -154,7 +154,9 @@ function Home() {
     <div className="home-container">
       <div className="home-content">
         <div className="header">
+          <div className="logoHello"><img className="logoimg" src="./logo.png" alt="" />
           <p>Bonjour {isConnected?  (user.username) : ("")} !</p>
+          </div>
           <div className="userConnect">
 
             {/* Conditionne la connexion de l'utilisateur*/}
