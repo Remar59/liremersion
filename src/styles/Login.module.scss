@@ -1,0 +1,136 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    height: 100vh;
+}
+
+.aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.aside .icon {
+    font-size: 200px;
+    transform: rotate(180deg);
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-content: flex-start;
+    gap: 40px;
+    padding: 40px;
+    background-color: #161d28;
+    grid-column-start: 3;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.main .icon {
+    font-size: 40px;
+}
+
+.main h1 {
+    font-size: 60px;
+}
+
+.btnLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.signup {
+    width: 200px;
+    height: 40px;
+    color: #161d28;
+    border-radius: 20px;
+    background-color: #1AB7EA;
+    border-color: #1AB7EA;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.signin {
+    width: 200px;
+    height: 40px;
+    color: #161d28;
+    border-radius: 20px;
+    border: 1px solid#fff;
+    color: #1AB7EA;
+    background: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.modalSignup {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalContent {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1F2938;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 30px;
+    gap: 20px;
+    border-radius: 20px;
+}
+
+.modalContent .icon {
+    font-size: 30px;
+}
+
+.modalContent h4 {
+    font-size: 24px;
+}
+
+.modalClose {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: none;
+    font-size: 18px;
+    color: #fff;
+}
+
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.modalForm input {
+    width: 210px;
+    padding: 15px;
+    border: 1px solid #fff;
+    background: none;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.signupBtn {
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid#fff;
+    color: #1F2938;
+    font-weight: 600;
+    font-size: 16px;
+}

@@ -1,22 +1,35 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Signup from './components/Signup';
-import Login from './components/login';
-import Category from './components/Category'
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
 
+import { Provider } from "react-redux";
+import { persistStore, persistReducer } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+import storage from "redux-persist/lib/storage";
+import users from "../src/reducers/users";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+
+const reducers = combineReducers({ users });
+const persistConfig = { key: "root", storage };
+const store = configureStore({
+  reducer: persistReducer(persistConfig, reducers),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
+});
+
+const persistor = persistStore(store);
 
 function App() {
-
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/Category/:categoryName" element={<Category />} />
-      </Routes>
-    </Router>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Router>
+      </PersistGate>
+    </Provider>
   );
 }
 
