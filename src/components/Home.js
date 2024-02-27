@@ -5,7 +5,7 @@ import AudioPlayer from "./AudioPlayer";
 import { tracks } from "../data/tracks";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../reducers/users";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import { FastAverageColor } from "fast-average-color";
@@ -140,7 +140,7 @@ function Home() {
         dispatch(addUser(data));
         console.log(data);
         if (data.result) {
-            setIsConnected(true);        
+          setIsConnected(true);
           navigate("/");
         }
       });
@@ -154,29 +154,29 @@ function Home() {
     <div className="home-container">
       <div className="home-content">
         <div className="header">
-          <p>Bonjour {isConnected?  (user.username) : ("")} !</p>
+          <p>Bonjour {isConnected ? (user.username) : ("")} !</p>
           <div className="userConnect">
 
             {/* Conditionne la connexion de l'utilisateur*/}
-            
-            { isConnected? (
-                <div>
+
+            {isConnected ? (
+              <div>
                 <button className="connect" onClick={disconnect}>
-                Déconnexion
-              </button>
+                  Déconnexion
+                </button>
               </div>
             ) : (
-                <div>
-            <button className="connect" onClick={openSignin}>
-              Se connecter
-            </button>
-            <button className="signup" onClick={openSignup}>
-              Créer un compte
-            </button>
-            </div>
+              <div>
+                <button className="connect" onClick={openSignin}>
+                  Se connecter
+                </button>
+                <button className="signup" onClick={openSignup}>
+                  Créer un compte
+                </button>
+              </div>
             )}
           </div>
-          
+
         </div>
         <h2>Catégories</h2>
         <div className="category-scrolling">
@@ -188,6 +188,12 @@ function Home() {
               </div>
             </Fragment>
           ))}
+          <Link to={"/categories"}>
+            <div>
+              <img src="https://www.iconpacks.net/icons/2/free-arrow-next-icon-2825-thumb.png" alt="Voir autres catégories" style={{ backgroundColor: "rgba(255, 255, 255, 0.555)" }} />
+              <label htmlFor="img">Voir toutes</label>
+            </div>
+          </Link>
         </div>
         <h2>Sons populaires</h2>
         <div className="popular-scrolling">
@@ -229,7 +235,7 @@ function Home() {
                   onChange={(e) => setPasswordSignup(e.target.value)}
                   value={passwordSignup}
                 />
-                <button className={styles.signupBtn} onClick={signup}> 
+                <button className={styles.signupBtn} onClick={signup}>
                   S'inscrire
                 </button>
               </form>
