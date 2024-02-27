@@ -134,8 +134,12 @@ body {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  color: #f0f0f2;
+  color: #ffffff;
   margin-top: 10px;
+}
+
+.loop-active{
+  color: green;
 }
 
 .playButton {

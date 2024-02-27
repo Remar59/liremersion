@@ -16,6 +16,10 @@ import {
   IoMdVolumeLow,
 } from 'react-icons/io';
 
+import { 
+  TiArrowLoop,
+} from "react-icons/ti";
+
 const Controls = ({
   audioRef,
   progressBarRef,
@@ -30,9 +34,14 @@ const Controls = ({
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(60);
   const [muteVolume, setMuteVolume] = useState(false);
+  const [looping, setLooping] = useState(false);
 
   const togglePlayPause = () => {
     setIsPlaying((prev) => !prev);
+  };
+
+  const toggleLooping = () => {
+    setLooping((prev) => !prev);
   };
 
   const playAnimationRef = useRef();
@@ -58,6 +67,14 @@ const Controls = ({
     }
     playAnimationRef.current = requestAnimationFrame(repeat);
   }, [isPlaying, audioRef, repeat]);
+
+  useEffect(() => {
+    if (looping) {
+      audioRef.current.loop = true;
+    } else {
+      audioRef.current.loop = false;
+    }
+  }, [looping, audioRef]);
 
   const skipForward = () => {
     audioRef.current.currentTime += 10;
@@ -103,6 +120,9 @@ const Controls = ({
         </button>
         <button className='button' onClick={handleNext}>
           <IoPlaySkipForwardSharp />
+        </button>
+        <button className={`button ${looping ? 'loop-active' : ''}`} onClick={toggleLooping}>
+          <TiArrowLoop />
         </button>
       </div>
       <div className="volume">
