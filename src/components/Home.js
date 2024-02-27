@@ -76,7 +76,12 @@ function Home() {
   const [passwordSignin, setPasswordSignin] = useState("");
   const [isConnected, setIsConnected] = useState("");
 
-  const user = useSelector((state) => state.users.value[0].newUser);
+  const user = useSelector((state) => {
+    if (state.users.value.length > 0) {
+      return state.users.value[0].newUser;
+    }
+    return null;
+  });
 
   const openSignup = () => {
     setsignupOpen(true);
