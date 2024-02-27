@@ -103,7 +103,6 @@ function Home() {
         console.log(data);
         dispatch(addUser(data));
         if (data.result) {
-
           navigate("/");
         }
       });
