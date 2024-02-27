@@ -3,16 +3,18 @@ import "../styles/home.scss";
 import styles from "../styles/Login.module.scss";
 import AudioPlayer from "./AudioPlayer";
 import { tracks } from "../data/tracks";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../reducers/users";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 // import { FastAverageColor } from "fast-average-color";
 
 function Home() {
   const [selectedTrack, setSelectedTrack] = useState(null);
   const [categories, setCategories] = useState([]);
   const [sounds, setSounds] = useState([]);
+
   // const [backgroundColor, setBackgroundColor] = useState('transparent');
 
   // const extractDominantColor = (imageUrl) => {
@@ -74,6 +76,8 @@ function Home() {
   const [passwordSignin, setPasswordSignin] = useState("");
   const [isConnected, setIsConnected] = useState("");
 
+  const user = useSelector((state) => state.users.value[0].newUser);
+
   const openSignup = () => {
     setsignupOpen(true);
   };
@@ -86,17 +90,20 @@ function Home() {
   const closeSignin = () => {
     setsigninOpen(false);
   };
+  const disconnect = () => {
+    setIsConnected(false);
+  }
 
   const signup = (e) => {
     e.preventDefault();
-    const profil = {
+    const profile = {
       username: usernameSignup,
       password: passwordSignup,
     };
     fetch("http://localhost:5500/users/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(profil),
+      body: JSON.stringify(profile),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -108,45 +115,52 @@ function Home() {
       });
     setUsernameSignup("");
     setPasswordSignup("");
+    closeSignup();
+    openSignin();
   };
 
   const signin = (e) => {
     e.preventDefault();
-    const profil = {
+    const profile = {
       username: usernameSignin,
       password: passwordSignin,
     };
     fetch("http://localhost:5500/users/signin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(profil),
+      body: JSON.stringify(profile),
     })
       .then((response) => response.json())
       .then((data) => {
         dispatch(addUser(data));
         console.log(data);
         if (data.result) {
-            setIsConnected(true);
+            setIsConnected(true);        
           navigate("/");
         }
       });
     setUsernameSignin("");
     setPasswordSignin("");
+    closeSignin();
   };
+
 
   return (
     <div className="home-container">
       <div className="home-content">
         <div className="header">
-          <p>Bonjour !</p>
+          <p>Bonjour {isConnected?  (user.username) : ("")} !</p>
           <div className="userConnect">
-            {isConnected? (
+
+            {/* Conditionne la connexion de l'utilisateur*/}
+            
+            { isConnected? (
                 <div>
-                <button className="connect" >
+                <button className="connect" onClick={disconnect}>
                 Déconnexion
               </button>
               </div>
-            ): (
+            ) : (
                 <div>
             <button className="connect" onClick={openSignin}>
               Se connecter
