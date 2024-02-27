@@ -1,7 +1,12 @@
 import React, { Fragment, useState, useEffect } from "react";
 import "../styles/home.scss";
+import styles from "../styles/Login.module.scss";
 import AudioPlayer from "./AudioPlayer";
 import { tracks } from "../data/tracks";
+import { useDispatch } from "react-redux";
+import { addUser } from "../reducers/users";
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { FastAverageColor } from "fast-average-color";
 
 function Home() {
@@ -29,7 +34,6 @@ function Home() {
     // };
 
     const changeSounds = (id) => {
-
         const selectedSound = sounds.find((sound) => sound.id === id);
         const selectedTrackInfo = tracks.find((track) => track.id === selectedSound.id);
         setSelectedTrack(selectedTrackInfo);
@@ -58,6 +62,78 @@ function Home() {
     //     });
     // }, [sounds]);
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [signupOpen, setsignupOpen] = useState(false);
+    const [signinOpen, setsigninOpen] = useState(false);
+    const [usernameSignup, setUsernameSignup] = useState("");
+    const [passwordSignup, setPasswordSignup] = useState("");
+    const [usernameSignin, setUsernameSignin] = useState("");
+    const [passwordSignin, setPasswordSignin] = useState("");
+
+
+    const openSignup = () => {
+        setsignupOpen(true);
+    };
+    const closeSignup = () => {
+        setsignupOpen(false);
+    };
+    const openSignin = () => {
+        setsigninOpen(true);
+    };
+    const closeSignin = () => {
+        setsigninOpen(false);
+    };
+
+    const signup = (e) => {
+        e.preventDefault();
+        const profil = {
+            username: usernameSignup,
+            password: passwordSignup,
+        };
+        fetch("http://localhost:5500/users/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(profil),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                dispatch(addUser(data));
+                if (data.result) {
+                    navigate.push("/home");
+                }
+            });
+        setUsernameSignup("");
+        setPasswordSignup("");
+    };
+
+    const signin = (e) => {
+        e.preventDefault();
+        const profil = {
+            username: usernameSignin,
+            password: passwordSignin,
+        };
+        fetch("http://localhost:5500/users/signin", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(profil),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                dispatch(addUser(data));
+                console.log(data);
+                if (data.result) {
+                    navigate.push("/home");
+                }
+            });
+        setUsernameSignin("");
+        setPasswordSignin("");
+    };
+
+
+
+
 
     return (
         <div className="home-container">
@@ -65,8 +141,8 @@ function Home() {
                 <div className="header">
                     <p>Bonjour !</p>
                     <div className="userConnect">
-                        <a className="connect" href="/login">Se connecter</a>
-                        <a className="signup" href="/signup">Créer un compte</a>
+                        <button className="connect" onClick={openSignin}>Se connecter</button>
+                        <button className="signup" onClick={openSignup}>Créer un compte</button>
                     </div>
                 </div>
                 <h2>Catégories</h2>
@@ -97,8 +173,65 @@ function Home() {
                         </Fragment>
                     ))}
                 </div>
+
+                {signupOpen && (
+                    <div className={styles.modalSignup}>
+                        <div className={styles.modalContent}>
+                            <button className={styles.modalClose} onClick={closeSignup}>
+                                &times;
+                            </button>
+                            <FontAwesomeIcon/>
+                            <h4>Crée ton compte LireMersion !</h4>
+                            <form className={styles.modalForm}>
+                                <input
+                                    type="text"
+                                    placeholder="Login"
+                                    onChange={(e) => setUsernameSignup(e.target.value)}
+                                    value={usernameSignup}
+                                />
+                                <input
+                                    type="password"
+                                    placeholder="Mot de passe"
+                                    onChange={(e) => setPasswordSignup(e.target.value)}
+                                    value={passwordSignup}
+                                />
+                                <button className={styles.signupBtn} onClick={signup}>
+                                    S'inscrire
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                )}
+                {signinOpen && (
+                    <div className={styles.modalSignup}>
+                        <div className={styles.modalContent}>
+                            <button className={styles.modalClose} onClick={closeSignin}>
+                                &times;
+                            </button>
+                            <FontAwesomeIcon/>
+                            <h4>Connecte toi !</h4>
+                            <form className={styles.modalForm}>
+                                <input
+                                    type="text"
+                                    placeholder="Login"
+                                    onChange={(e) => setUsernameSignin(e.target.value)}
+                                    value={usernameSignin}
+                                />
+                                <input
+                                    type="password"
+                                    placeholder="Mot de passe"
+                                    onChange={(e) => setPasswordSignin(e.target.value)}
+                                    value={passwordSignin}
+                                />
+                                <button className={styles.signupBtn} onClick={signin}>
+                                S'identifier
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                )}
             </div>
-            { <AudioPlayer selectedTrack={selectedTrack} /*backgroundColor={backgroundColor}*/ /> }
+            {<AudioPlayer selectedTrack={selectedTrack} /*backgroundColor={backgroundColor}*/ />}
         </div>
     );
 }
