@@ -7,7 +7,7 @@ p {
 .home-container {
     height: 100vh;
     background: linear-gradient(#040306, #22273f);
-    
+
 
     .home-content {
         color: white;
@@ -15,7 +15,7 @@ p {
         width: 95vw;
         margin: auto;
 
-        h2{
+        h2 {
             margin: 10px 10px;
         }
 
@@ -32,12 +32,12 @@ p {
                 @media screen and (max-width: 900px) {
                     display: flex;
                     flex-direction: column;
-                  }
+                }
 
                 .connect {
                     color: black;
                     padding: 5px;
-                    background-color:white;
+                    background-color: white;
                     border-radius: 10px;
                     margin-bottom: 10px;
                     text-decoration: none;
@@ -45,7 +45,7 @@ p {
                     margin-right: 10px;
                     font-size: 2rem;
                 }
-                
+
                 .signup {
                     color: white;
                     padding: 5px;
@@ -57,7 +57,7 @@ p {
                     margin-right: 10px;
                     font-size: 2rem;
                 }
-                
+
 
             }
         }
@@ -68,20 +68,24 @@ p {
             overflow-x: auto;
             scrollbar-width: none;
 
-            div {
-                margin: 10px;
-                display: flex;
-                flex-direction: column;
-                max-width: 130px;
+            .category {
+                text-decoration: none;
 
-                img {
-                    width: 130px;
-                    height: 130px;
-                    border-radius: 5px;
-                }
+                div {
+                    margin: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    max-width: 130px;
 
-                label {
-                    color: white;
+                    img {
+                        width: 130px;
+                        height: 130px;
+                        border-radius: 5px;
+                    }
+
+                    label {
+                        color: white;
+                    }
                 }
             }
         }
@@ -113,4 +117,3 @@ p {
         }
     }
 }
-

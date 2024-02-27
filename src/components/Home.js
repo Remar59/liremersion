@@ -73,10 +73,12 @@ function Home() {
                 <div className="category-scrolling">
                     {categories.map((item) => (
                         <Fragment >
-                            <div key={item.id}>
-                                <img src={item.image} alt={item.name} />
-                                <label htmlFor="img">{item.name}</label>
-                            </div>
+                            <a href={`/Category/${item.name}`} className="category">
+                                <div key={item.id}>
+                                    <img src={item.image} alt={item.name} />
+                                    <label htmlFor="img">{item.name}</label>
+                                </div>
+                            </a>
                         </Fragment>
                     ))}
                 </div>
@@ -98,7 +100,7 @@ function Home() {
                     ))}
                 </div>
             </div>
-            { <AudioPlayer selectedTrack={selectedTrack} /*backgroundColor={backgroundColor}*/ /> }
+            {<AudioPlayer selectedTrack={selectedTrack} /*backgroundColor={backgroundColor}*/ />}
         </div>
     );
 }
