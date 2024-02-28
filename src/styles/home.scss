@@ -36,11 +36,13 @@ body{
 
             .logoHello{
                 display: flex;
+                gap: 2rem;
+                align-items: center;
             }
 
             .logoimg{
-                width: 3rem;
-                height: 3rem;
+                width: 5rem;
+                height: 5rem;
             }
  
             .userConnect {
