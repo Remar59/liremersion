@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import "../styles/category.scss";
 
 function Category() {
+    const { categoryId } = useParams();
     const [categoryName, setCategoryName] = useState("");
+    console.log("Category ID:", categoryId);
 
     useEffect(() => {
-        const categoryName = window.location.pathname.split("/").pop();
-        console.log("Category Name:", categoryName);
-        
         const fetchCategoryDetails = async () => {
             try {
-                // Remplacer cette logique par votre propre logique pour récupérer les détails de la catégorie
-                const response = await fetch(`http://localhost:5500/categories/${categoryName}`);
+                const response = await fetch(`http://localhost:5500/categories/${categoryId}`);
                 const data = await response.json();
-                // Mettre à jour l'état avec le nom de la catégorie
                 setCategoryName(data.name);
             } catch (error) {
                 console.error("Error fetching category details:", error);
@@ -20,11 +19,11 @@ function Category() {
         };
 
         fetchCategoryDetails();
-    }, []);
+    }, [categoryId]);
 
     return (
-        <div>
-            <h1>Détails de la catégorie : {categoryName}</h1>
+        <div className="categoryContainer">
+            <h1>Catégorie {categoryName}</h1>
         </div>
     );
 }

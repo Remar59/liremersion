@@ -9,6 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import storage from "redux-persist/lib/storage";
 import users from "../src/reducers/users";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import Category from "./components/Category";
 
 const reducers = combineReducers({ users });
 const persistConfig = { key: "root", storage };
@@ -27,7 +28,8 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/categories" component={<Categories />} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/category/:categoryId" element={<Category />} />
           </Routes>
         </Router>
       </PersistGate>
