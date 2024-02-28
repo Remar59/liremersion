@@ -11,12 +11,15 @@ function Category() {
     const [sounds, setSounds] = useState([]);
     
     const changeSounds = (id) => {
-        const selectedSound = sounds.find((sound) => sound.id === id);
+        console.log(tracks);
+        //const selectedSound = sounds.find((sound) => sound._id === id);
         const selectedTrackInfo = tracks.find(
-          (track) => track.id === selectedSound.id
+          (track) => track.id === id
         );
+        console.log(selectedTrackInfo);
         setSelectedTrack(selectedTrackInfo);
         // extractDominantColor(selectedSound.image);
+        console.log(id);
       };
 
     const listSound = categoryName.soundId.map((item) => {
