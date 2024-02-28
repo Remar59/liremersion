@@ -155,7 +155,7 @@ function Home() {
       <div className="home-content">
         <div className="header">
           <div className="logoHello"><img className="logoimg" src="./logo.png" alt="" />
-          <p>Bonjour {isConnected?  (user.username) : ("")} !</p>
+            <p>Bonjour {isConnected ? (user.username) : ("")} !</p>
           </div>
           <div className="userConnect">
 
@@ -184,10 +184,12 @@ function Home() {
         <div className="category-scrolling">
           {categories.map((item) => (
             <Fragment>
-              <div key={item.id}>
-                <img src={item.image} alt={item.name} />
-                <label htmlFor="img">{item.name}</label>
-              </div>
+              <Link to={`/category/${item._id}`}>
+                <div>
+                  <img src={item.image} alt={item.name} />
+                  <label htmlFor="img">{item.name}</label>
+                </div>
+              </Link>
             </Fragment>
           ))}
           <Link to={"/categories"}>

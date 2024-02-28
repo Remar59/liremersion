@@ -10,6 +10,7 @@ import users from "../src/reducers/users";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import AudioPlayer from "./components/AudioPlayer";
 
+import Category from "./components/Category";
 
 const reducers = combineReducers({ users });
 const persistConfig = { key: "root", storage };
@@ -33,7 +34,8 @@ const [selectedTrack,setSelectedTrack] = useState(null);
           <AudioPlayer selectedTrack={selectedTrack}/>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/categories" element={<Categories setSelectedTrack={setSelectedTrack}/>} />
+            <Route path="/categories" element={<Categories />} />
+            <Route path="/category/:categoryId" element={<Category />} />
           </Routes>
         </Router>
       </PersistGate>

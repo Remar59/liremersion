@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../styles/categories.scss"; 
+import "../styles/categories.scss";
+
 import AudioPlayer from "./AudioPlayer";
 
 
