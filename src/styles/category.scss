@@ -33,6 +33,7 @@ body {
                     display: flex;
                     flex-direction: column;
                     cursor: pointer;
+                    text-align: center;
                 
                     img {
                         width: 200px;
@@ -42,6 +43,7 @@ body {
                     label {
                         color: white;
                         font-size: 24px;
+                        margin-top: 10px;
                     }
                 }
             }
