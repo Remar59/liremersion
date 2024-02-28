@@ -4,6 +4,7 @@ import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
 import { tracks } from "../data/tracks";
 
+//récupère les props pour la musique
 const AudioPlayer = ({ selectedTrack, backgroundColor }) => {
   // states
   const [trackIndex, setTrackIndex] = useState(0);
@@ -26,7 +27,7 @@ const AudioPlayer = ({ selectedTrack, backgroundColor }) => {
     }
   }, [selectedTrack])
 
-
+// Gère la musique suivante
   const handleNext = () => {
     if (trackIndex >= tracks.length - 1) {
       setTrackIndex(0);

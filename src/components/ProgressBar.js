@@ -7,6 +7,7 @@ const ProgressBar = ({ progressBarRef, audioRef, timeProgress, duration }) => {
     audioRef.current.currentTime = progressBarRef.current.value;
   };
 
+  //Permet de modifier le format du temps de la musique
   const formatTime = (time) => {
     if (time && !isNaN(time)) {
       const minutes = Math.floor(time / 60);
