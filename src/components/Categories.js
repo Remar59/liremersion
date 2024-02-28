@@ -4,7 +4,7 @@ import "../styles/categories.scss";
 import AudioPlayer from "./AudioPlayer";
 
 
-function Categories(selectedTrack) {
+function Categories(setSelectedTrack) {
   const [categories, setCategories] = useState([]);
 
 
@@ -23,6 +23,7 @@ function Categories(selectedTrack) {
   }, []);
 
   return (
+    <div className="bodyCat">
     <div className="categories-grid-container">
       <h2>Toutes les catégories</h2>
       <div className="categories-grid">
@@ -31,11 +32,12 @@ function Categories(selectedTrack) {
             <img src={category.image} alt={category.name} />
             <label htmlFor="img">{category.name}</label>
             <AudioPlayer
-          selectedTrack={selectedTrack} /*backgroundColor={backgroundColor}*/
+          setSelectedTrack={setSelectedTrack} 
         />
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }
