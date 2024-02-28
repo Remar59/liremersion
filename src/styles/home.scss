@@ -1,14 +1,20 @@
 //@import "reset";
 
+
 p {
     margin: 0;
 }
 
 
+
+body{
+    padding: 0;
+   
+
+
 .home-container {
     height: 100vh;
     background: linear-gradient(#040306, #22273f);
-
 
 
     .home-content {
@@ -128,4 +134,5 @@ p {
             }
         }
     }
+}
 }

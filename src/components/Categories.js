@@ -32,11 +32,12 @@ function Categories(setSelectedTrack) {
           <div key={category.id} className="category-item">
             <img src={category.image} alt={category.name} />
             <label htmlFor="img">{category.name}</label>
-            <AudioPlayer
-          setSelectedTrack={setSelectedTrack} 
-        />
           </div>
         ))}
+        
+        <AudioPlayer
+          setSelectedTrack={setSelectedTrack} 
+        />
       </div>
     </div>
     </div>
