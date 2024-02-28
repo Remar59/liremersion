@@ -46,17 +46,18 @@ const Controls = ({
 
   const playAnimationRef = useRef();
   console.log(playAnimationRef);
+  
   const repeat = useCallback(() => {
-    const currentTime = audioRef.current.currentTime;
-    setTimeProgress(currentTime);
-    progressBarRef.current.value = currentTime;
-    progressBarRef.current.style.setProperty(
-      '--range-progress',
-      `${(progressBarRef.current.value / duration) * 100}%`
+    if (audioRef.current) {
+      const currentTime = audioRef.current.currentTime;
+      setTimeProgress(currentTime);
+      progressBarRef.current.value = currentTime;
+      progressBarRef.current.style.setProperty(
+        '--range-progress',
+        `${(progressBarRef.current.value / duration) * 100}%`
       );
-      
-      
-    playAnimationRef.current = requestAnimationFrame(repeat);
+      playAnimationRef.current = requestAnimationFrame(repeat);
+    }
   }, [audioRef, duration, progressBarRef, setTimeProgress]);
 
   useEffect(() => {

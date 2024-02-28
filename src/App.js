@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Categories from "./components/Categories";
@@ -22,19 +22,23 @@ const store = configureStore({
 const persistor = persistStore(store);
 
 function App() {
+
+const [selectedTrack,setSelectedTrack] = useState(null);
+
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <Router>
-          <AudioPlayer />
+          <AudioPlayer selectedTrack={selectedTrack}/>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/categories" component={<Categories />} />
+            <Route path="/categories" element={<Categories setSelectedTrack={setSelectedTrack}/>} />
           </Routes>
         </Router>
       </PersistGate>
     </Provider>
   );
-}
+} 
 
 export default App;

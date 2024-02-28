@@ -1,3 +1,11 @@
+@import "reset";
+
+.bodyCat{
+  padding-bottom: 20rem;
+  background: linear-gradient(#040306, #22273f);
+  margin: 0;
+}
+
 .categories-grid-container {
     max-width: 800px;
     margin: 0 auto;
@@ -20,5 +28,6 @@
   .category-item label {
     display: block;
     margin-top: 10px;
+    color: white;
   }
   
