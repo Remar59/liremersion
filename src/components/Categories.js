@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/categories.scss";
 
 import AudioPlayer from "./AudioPlayer";
+import { Link } from "react-router-dom";
 
 
 function Categories(setSelectedTrack) {
@@ -18,28 +19,35 @@ function Categories(setSelectedTrack) {
         console.error("Error fetching categories:", error);
       }
     }
-    
+
 
     fetchCategories();
   }, []);
 
   return (
-    <div className="bodyCat">
-    <div className="categories-grid-container">
-      <h2>Toutes les catégories</h2>
-      <div className="categories-grid">
-        {categories.map((category) => (
-          <div key={category.id} className="category-item">
-            <img src={category.image} alt={category.name} />
-            <label htmlFor="img">{category.name}</label>
+    <div className="bg">
+      <div className="bodyCat">
+        <Link to={"/"}>
+          <img className="logoimg" src="../logo.png" alt="" />
+        </Link>
+        <div className="categories-grid-container">
+          <h1>Toutes les catégories</h1>
+          <div className="categories-grid">
+            {categories.map((category) => (
+              <Link to={`/category/${category._id}`}>
+                <div key={category.id} className="category-item">
+                  <img src={category.image} alt={category.name} />
+                  <label htmlFor="img">{category.name}</label>
+                </div>
+              </Link>
+            ))}
+
+            <AudioPlayer
+              setSelectedTrack={setSelectedTrack}
+            />
           </div>
-        ))}
-        
-        <AudioPlayer
-          setSelectedTrack={setSelectedTrack} 
-        />
+        </div>
       </div>
-    </div>
     </div>
   );
 }

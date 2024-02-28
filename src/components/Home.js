@@ -165,8 +165,8 @@ function Home() {
     <div className="home-container">
       <div className="home-content">
         <div className="header">
-          <div className="logoHello"><img className="logoimg" src="./logo.png" alt="" />
-          {/* ternaire permet d'afficher le nom de la personne connectée*/}
+          <div className="logoHello">
+            <img className="logoimg" src="./logo.png" alt="" />
             <p>Bonjour {isConnected ? (user.username) : ("")} !</p>
           </div>
           <div className="userConnect">
