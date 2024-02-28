@@ -13,6 +13,8 @@ const DisplayTrack = ({
     progressBarRef.current.max = seconds;
   };
 
+  
+
   return (
     <div>
       <audio

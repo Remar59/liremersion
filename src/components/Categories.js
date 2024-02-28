@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../styles/categories.scss";
 
-function Categories() {
+import AudioPlayer from "./AudioPlayer";
+
+
+function Categories(selectedTrack) {
   const [categories, setCategories] = useState([]);
+
 
   useEffect(() => {
     async function fetchCategories() {
@@ -26,6 +30,9 @@ function Categories() {
           <div key={category.id} className="category-item">
             <img src={category.image} alt={category.name} />
             <label htmlFor="img">{category.name}</label>
+            <AudioPlayer
+          selectedTrack={selectedTrack} /*backgroundColor={backgroundColor}*/
+        />
           </div>
         ))}
       </div>

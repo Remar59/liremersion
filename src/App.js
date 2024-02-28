@@ -2,13 +2,14 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Categories from "./components/Categories";
-
 import { Provider } from "react-redux";
 import { persistStore, persistReducer } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import storage from "redux-persist/lib/storage";
 import users from "../src/reducers/users";
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import AudioPlayer from "./components/AudioPlayer";
+
 import Category from "./components/Category";
 
 const reducers = combineReducers({ users });
@@ -26,6 +27,7 @@ function App() {
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <Router>
+          <AudioPlayer />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/categories" element={<Categories />} />
