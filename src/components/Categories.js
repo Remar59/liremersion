@@ -18,6 +18,7 @@ function Categories(setSelectedTrack) {
         console.error("Error fetching categories:", error);
       }
     }
+    
 
     fetchCategories();
   }, []);

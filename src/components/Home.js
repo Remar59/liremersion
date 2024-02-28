@@ -35,6 +35,9 @@ function Home() {
   //     };
   // };
 
+  //sers à faire le lien entre le fichier track (mp3 en localstorage)
+  //et les sounds contenant les informations en bdd
+
   const changeSounds = (id) => {
     const selectedSound = sounds.find((sound) => sound.id === id);
     const selectedTrackInfo = tracks.find(
@@ -118,6 +121,8 @@ function Home() {
           navigate("/");
         }
       });
+      //Remets les champs à zéro et ferme la modale
+      //J'en profite pour ouvrir le login afin que l'utilisateur s'identifie
     setUsernameSignup("");
     setPasswordSignup("");
     closeSignup();
@@ -144,6 +149,7 @@ function Home() {
           navigate("/");
         }
       });
+      //Remets les champs à zéro et ferme la modale
     setUsernameSignin("");
     setPasswordSignin("");
     closeSignin();
@@ -178,8 +184,9 @@ function Home() {
               </div>
             )}
           </div>
-
         </div>
+
+
         <h2>Catégories</h2>
         <div className="category-scrolling">
           {categories.map((item) => (
@@ -199,6 +206,7 @@ function Home() {
             </div>
           </Link>
         </div>
+
         <h2>Sons populaires</h2>
         <div className="popular-scrolling">
           {sounds.map((item) => (
@@ -246,6 +254,7 @@ function Home() {
             </div>
           </div>
         )}
+
         {signinOpen && (
           <div className={styles.modalSignup}>
             <div className={styles.modalContent}>
@@ -275,11 +284,13 @@ function Home() {
           </div>
         )}
       </div>
+
       {
         <AudioPlayer
-          selectedTrack={selectedTrack} /*backgroundColor={backgroundColor}*/
+          selectedTrack={selectedTrack}
         />
       }
+      
     </div>
   );
 }

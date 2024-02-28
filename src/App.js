@@ -30,8 +30,8 @@ const [selectedTrack,setSelectedTrack] = useState(null);
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
+      <AudioPlayer selectedTrack={selectedTrack}/>
         <Router>
-          <AudioPlayer selectedTrack={selectedTrack}/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/categories" element={<Categories />} />
