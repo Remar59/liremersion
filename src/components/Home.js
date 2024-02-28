@@ -47,7 +47,7 @@ function Home() {
     // extractDominantColor(selectedSound.image);
   };
 
-  //combine les appels API
+  //combine les appels API 
   useEffect(() => {
     async function fetchData(url, setter) {
       try {
@@ -102,6 +102,8 @@ function Home() {
     setIsConnected(false);
   }
 
+  //fonction pour l'enregistrement du compte
+
   const signup = (e) => {
     e.preventDefault();
     const profile = {
@@ -128,6 +130,9 @@ function Home() {
     closeSignup();
     openSignin();
   };
+
+
+   //fonction pour la connexion du compte
 
   const signin = (e) => {
     e.preventDefault();
@@ -161,6 +166,7 @@ function Home() {
       <div className="home-content">
         <div className="header">
           <div className="logoHello"><img className="logoimg" src="./logo.png" alt="" />
+          {/* ternaire permet d'afficher le nom de la personne connectée*/}
             <p>Bonjour {isConnected ? (user.username) : ("")} !</p>
           </div>
           <div className="userConnect">
@@ -230,7 +236,7 @@ function Home() {
           <div className={styles.modalSignup}>
             <div className={styles.modalContent}>
               <button className={styles.modalClose} onClick={closeSignup}>
-                &times;
+                &times;  {/* permet de créer le bouton de fermeture*/}
               </button>
               <FontAwesomeIcon />
               <h4>Crée ton compte LireMersion !</h4>
@@ -259,7 +265,7 @@ function Home() {
           <div className={styles.modalSignup}>
             <div className={styles.modalContent}>
               <button className={styles.modalClose} onClick={closeSignin}>
-                &times;
+                &times; 
               </button>
               <FontAwesomeIcon />
               <h4>Connecte-toi !</h4>
@@ -284,13 +290,11 @@ function Home() {
           </div>
         )}
       </div>
-
       {
         <AudioPlayer
           selectedTrack={selectedTrack}
         />
       }
-      
     </div>
   );
 }

@@ -5,12 +5,9 @@ p {
     margin: 0;
 }
 
-
-
 body{
-    padding: 0;
-   
-
+    padding-top: 0;
+}
 
 .home-container {
     height: 100vh;
@@ -61,6 +58,7 @@ body{
                     text-align: center;
                     margin-right: 10px;
                     font-size: 2rem;
+                    cursor: pointer;
                 }
 
                 .signup {
@@ -73,6 +71,7 @@ body{
                     text-align: center;
                     margin-right: 10px;
                     font-size: 2rem;
+                    cursor: pointer;
                 }
 
 
@@ -95,10 +94,12 @@ body{
                 flex-direction: column;
                 max-width: 130px;
 
+
                 img {
                     width: 130px;
                     height: 130px;
                     border-radius: 5px;
+                    cursor: pointer;
                 }
 
                 label {
@@ -134,5 +135,4 @@ body{
             }
         }
     }
-}
 }
