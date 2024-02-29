@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
-import "../styles/home.scss";
-import styles from "../styles/Login.module.scss";
+import "../styles/_home.scss";
+import styles from "../styles/_signinSignupmodal.module.scss";
 import AudioPlayer from "./AudioPlayer";
 import { tracks } from "../data/tracks";
 import { useDispatch, useSelector } from "react-redux";
@@ -171,7 +171,7 @@ function Home() {
           </div>
           <div className="userConnect">
 
-            {/* Conditionne la connexion de l'utilisateur*/}
+            {/* Conditionne la connexion de l'utilisateur en changeant les boutons si user connected */}
 
             {isConnected ? (
               <div>
