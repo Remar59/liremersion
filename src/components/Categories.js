@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/categories.scss";
+import "../styles/_categories.scss";
 
 import AudioPlayer from "./AudioPlayer";
 import { Link } from "react-router-dom";

@@ -7,13 +7,14 @@ const DisplayTrack = ({
   progressBarRef,
   handleNext,
 }) => {
+  // permet de charger les données de la musique, 
+  //notamment la barre de progression en récupérant la durée
   const onLoadedMetadata = () => {
     const seconds = audioRef.current.duration;
     setDuration(seconds);
     progressBarRef.current.max = seconds;
   };
 
-  
 
   return (
     <div>

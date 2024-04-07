@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import "../styles/category.scss";
+import "../styles/_category.scss";
 import { tracks } from "../data/tracks";
 
 function Category() {

@@ -13,7 +13,6 @@ const AudioPlayer = ({ selectedTrack, backgroundColor }) => {
   const [duration, setDuration] = useState(0);
   const [background, setBackground] = useState('transparent');
 
-  // reference
   const audioRef = useRef(null);
   const progressBarRef = useRef(null);
 
@@ -29,10 +28,13 @@ const AudioPlayer = ({ selectedTrack, backgroundColor }) => {
 
 // Gère la musique suivante
   const handleNext = () => {
+    //vérifie que ça ne soit pas la dernière musique de la liste
     if (trackIndex >= tracks.length - 1) {
+      //si c'est le cas, retourne à la première musique de la liste
       setTrackIndex(0);
       setCurrentTrack(tracks[0]);
     } else {
+      // sinon joue la suivante
       setTrackIndex((prev) => prev + 1);
       setCurrentTrack(tracks[trackIndex + 1]);
     }

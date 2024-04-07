@@ -45,7 +45,7 @@ const Controls = ({
   };
 
   const playAnimationRef = useRef();
-  console.log(playAnimationRef);
+
   
   const repeat = useCallback(() => {
     if (audioRef.current) {
